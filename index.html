@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academlo Store</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
@@ -45,7 +47,7 @@
             <div class="menu--container">
                 <!-- <ul class="menu-item main-links"> -->
                     <div id="contain-home"><a href="#">Home</a></div>
-                    <div><a href="#">Products</a></div>
+                    <div><a href="#products-list">Products</a></div>
                     
                 <!-- </ul> -->
             </div>
@@ -113,27 +115,27 @@
             <h1>New Sweatshirt</h1>
             <h4>COLLECTIONS 2022</h4>
             <p>Lastest arrival of the new Hares Midweight Crewneck sweatshit imported from the 2022 series, with a modern design.</p>
-            <p class="price">$24.00</p>
-            <div class="btn--container--main" id="3">
+            <p class="price">$14.00</p>
+            <div class="btn--container--main" id="4">
                 <button class="btn--discover--main">Discover</button>
                 <button class="btn-add btn--add--main">ADD TO CART</button>
             </div>
         </section> 
         <section class="section--submenu">
                    <div class="submenu--row">
-                    <div class="submenu--col">
+                    <div onclick="showProductsFiltered('all')" class="submenu--col">
                         <h4>Show All</h4>
                         <p>show all products</p>
                     </div>
-                    <div class="submenu--col">
+                    <div onclick="showProductsFiltered('Hoodies')" class="submenu--col">
                         <h4>Hoodies</h4>
                         <p>3 products</p>
                     </div>
-                    <div class="submenu--col">
+                    <div onclick="showProductsFiltered('Shirts')" class="submenu--col">
                         <h4>Shirts</h4>
                         <p>4 products</p>
                     </div>
-                    <div class="submenu--col">
+                    <div onclick="showProductsFiltered('Sweatshirts')" class="submenu--col">
                         <h4>Sweatshirts</h4>
                         <p>4 products</p>
                     </div>
@@ -175,13 +177,13 @@
                     <h2 class="footer--category">Product</h2>
                     <ul class="footer--list">
                         <li>
-                            <a href="" class="footer--link">Hoodies</a>
+                            <div onclick="showProductsFiltered('Hoodies')"  class="footer-div-link">Hoodies</div>
                         </li>
                         <li>
-                            <a href="" class="footer--link">Shirts</a>
+                            <div onclick="showProductsFiltered('Shirts')" class="footer-div-link">Shirts</div>
                         </li>
                         <li>
-                            <a href="" class="footer--link">Sweatshirts</a>
+                            <div onclick="showProductsFiltered('Sweatshirts')" class="footer-div-link">Sweatshirts</div>
                         </li>
                     </ul>
                 </div>
