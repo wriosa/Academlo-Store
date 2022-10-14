@@ -178,7 +178,7 @@ function showProductsInCart(cart){
                     <p>Stock: ${producto.quantity} |<span> $${producto.price}.00</span></p>
                     <span class="span-sub">Subtotal:$${subTotal} </span>
                     <div class="text--btns">
-                    <button class="btn-cart">-</button><label>${producto.cantidad}</label> units<button class="btn-cart">+</button><i class='bx bx-trash-alt'></i>
+                    <button class="btn-cart">-</button><label>${producto.cantidad}</label> units<button class="btn-cart"><i class='bx bx-trash-alt'></i></button>
                     </div>
                 </div>
             </div>       
