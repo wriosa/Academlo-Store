@@ -365,7 +365,6 @@ header {
   box-shadow: var(--button-shadow);
   cursor: pointer;
   transition: all 0.6s;
-  z-index: 1;
 }
 
 .product-card .btn-add-apereance:hover,
