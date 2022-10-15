@@ -346,9 +346,7 @@ header {
   color: var(--text-color);
   margin-bottom: 1rem;
 }
-.bx-plus {
-  z-index: -2;
-}
+
 .product-card .btn-add-apereance {
   position: absolute;
   font-size: 2rem;
@@ -440,13 +438,14 @@ header {
 }
 .btn--discover--main:hover {
   background-color: var(--first-color-red);
-  transform: skew(2deg);
+  /* transform: skew(2deg); */
   transition: all 0.6s;
 }
 
 .btn--add--main {
   color: white;
   font-weight: var(--fw7);
+  font-size: 1rem;
   width: 10rem;
   height: 3.7rem;
   border: none;
