@@ -7,6 +7,7 @@
     <title>Academlo Store</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -64,7 +65,8 @@
             </div>
             <!-- GRID ICON -->
             <div class="grid--icon">
-                <i class='bx bx-grid-alt bx-sm' id="btn-menu"></i>
+                <i class='bx bx-menu bx-sm' id="btn-menu"></i>
+                <!-- <i class='bx bx-grid-alt bx-sm' id="btn-menu"></i> -->
                 
 
                 
@@ -127,14 +129,17 @@
                         <h4>Show All</h4>
                         <p>show all products</p>
                     </div>
+                    <div class="submenu--col-line"></div>
                     <div onclick="showProductsFiltered('Hoodies')" class="submenu--col">
                         <h4>Hoodies</h4>
                         <p>3 products</p>
                     </div>
+                    <div class="submenu--col-line"></div>
                     <div onclick="showProductsFiltered('Shirts')" class="submenu--col">
                         <h4>Shirts</h4>
                         <p>4 products</p>
                     </div>
+                    <div class="submenu--col-line"></div>
                     <div onclick="showProductsFiltered('Sweatshirts')" class="submenu--col">
                         <h4>Sweatshirts</h4>
                         <p>4 products</p>
