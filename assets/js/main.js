@@ -1,3 +1,4 @@
+// Final version
 const items = [
     {
       id: 1,
@@ -90,9 +91,9 @@ const showProducts = () => {
             <div class="image--container">
             <img src="${producto.image}" alt="">
             </div>
-            <p>$${producto.price}.00<span>Stock: ${producto.quantity}</span></p>
+            <p>$${producto.price.toFixed(2)}<span>Stock: ${producto.quantity}</span></p>
             <h4>${producto.name}</h4>
-            <button class="btn-add btn-add-apereance">+</button>
+            <i class='bx bx-plus bx-md btn-add btn-add-apereance'></i>
         </div>
          `
     })
@@ -237,14 +238,15 @@ const showProductsFiltered = (itemName) => {
             <div class="image--container">
             <img src="${producto.image}" alt="">
             </div>
-            <p>$${producto.price}.00<span>Stock: ${producto.quantity}</span></p>
+            <p>$${producto.price.toFixed(2)}<span>Stock: ${producto.quantity}</span></p>
             <h4>${producto.name}</h4>
-            <button class="btn-add btn-add-apereance">+</button>
+            <i class='bx bx-plus btn-add btn-add-apereance'></i>
         </div>
          `
     });
 
     productContainer.innerHTML = fragment
+    // <button class="btn-add btn-add-apereance">+</button>
 
     cartFunctionality()
 }

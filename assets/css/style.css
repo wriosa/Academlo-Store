@@ -349,14 +349,16 @@ header {
 
 .product-card .btn-add-apereance {
   position: absolute;
-  font-size: 2rem;
-  bottom: 4rem;
+  /* font-size: 2rem; */
+  bottom: 3.6rem;
   right: 1.5rem;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  width: 2.7rem;
-  height: 2.7rem;
+  /* text-align: center; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* width: 2.7rem; */
+  /* height: 2.7rem; */
+  /* margin: .5rem; */
+  padding: .3rem;
   background-color: var(--body-color);
   color: var(--text-color);
   border-radius: 50%;
@@ -520,6 +522,7 @@ header {
   display: flex;
   flex-direction: column;
   margin-bottom: 7rem;
+  margin: 4rem 1.3rem 7rem 1.3rem;
 }
 
 footer {
