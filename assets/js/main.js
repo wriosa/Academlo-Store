@@ -102,7 +102,7 @@ const showProducts = () => {
 
     cartFunctionality()
 }
-// {/* <button class="btn-add"><i class='bx bx-plus bx-sm'></i></button> */}
+//  <button class="btn-add"><i class='bx bx-plus bx-sm'></i></button> 
 
 /* ---------------------AÑADE FUNCIONALIDAD A LOS BOTONES EN LOS PRODUCTOS--------------------------- */
 function cartFunctionality(){
@@ -240,7 +240,7 @@ const showProductsFiltered = (itemName) => {
             </div>
             <p>$${producto.price.toFixed(2)}<span>Stock: ${producto.quantity}</span></p>
             <h4>${producto.name}</h4>
-            <i class='bx bx-plus btn-add btn-add-apereance'></i>
+            <i class='bx bx-plus bx-md btn-add btn-add-apereance'></i>
         </div>
          `
     });
