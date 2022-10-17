@@ -33,6 +33,7 @@ const items = [
         quantity: 20
       }
 ]
+let cart = JSON.parse(localStorage.getItem("data")) || [];
 
 /*---------------------LOADER------------------------- */
 /* Esta función se encarga de hacer desaparecer el loader pasados 3seg desde el momento en el que se ejecuta */
@@ -60,7 +61,7 @@ window.addEventListener('scroll', function() {
 
 /* ---------------------VISTA DE CARRITO DE COMPRAS--------------------------- */
 //showCart();
-const cart = document.getElementById("cart-container")
+const cart_1 = document.getElementById("cart-container")
 const shopIcon = document.getElementById("cart-shop")
 const shopCloseIcon = document.getElementById("close-cart")
 
@@ -68,15 +69,14 @@ const shopCloseIcon = document.getElementById("close-cart")
 //Cuando ocurre un click sobre el icono de la tienda, quita la clase hide al elemento 'cart' 
 //para volverlo visible
 shopIcon.addEventListener("click", () => {
-  cart.classList.remove("hide");
+  cart_1.classList.remove("hide");
 })
 
 
 //Cuando detecta un click sobre el icono de cerrar, añade de nuevo la clase 'hide' al elemento 'cart' para ocultarlo
 shopCloseIcon.addEventListener( "click", () => {
-    cart.classList.add("hide")
+    cart_1.classList.add("hide")
 })
-
 
 /* ----------------------MOSTRAR LISTADO DE PRODUCTOS--------------------------- */
 // contenedor.innerHTML = "html"
@@ -86,6 +86,7 @@ const showProducts = () => {
     let fragment = ``
 
     items.slice(0, -1).forEach( producto => {
+        // let inStockNumber = inStockItems(producto.id);
         fragment += `
         <div class="product-card" id="${producto.id}">
             <div class="image--container">
@@ -102,22 +103,33 @@ const showProducts = () => {
 
     cartFunctionality()
 }
+{/* <p>$${producto.price.toFixed(2)}<span>Stock: ${producto.quantity}</span></p> */}
+
 //  <button class="btn-add"><i class='bx bx-plus bx-sm'></i></button> 
 
 /* ---------------------AÑADE FUNCIONALIDAD A LOS BOTONES EN LOS PRODUCTOS--------------------------- */
 function cartFunctionality(){
     /* Obtiene todos los botones de los productos */
     const btns = document.querySelectorAll(".btn-add")
-    const cart = []
-    cart_quantity.innerHTML = `0`;
+    // let cart = JSON.parse(localStorage.getItem("data")) || [];
+    // cart_quantity.innerHTML = `0`;
+    totalCantidad = 0
+            for (const arti of cart) {
+            totalCantidad += arti.cantidad
+            } 
 
     //Añade un eventListener a cada boton para detectar un click
     btns.forEach( button => {
         button.addEventListener( "click", e => {
+            let selectedProduct;
             //Obtiene el id del elemento que sufrio el click
             const id = parseInt(e.target.parentElement.id)
             //Encuentra al elemento seleccionado en el arreglo de productos
-            const selectedProduct = items.find( item => item.id === id )
+            if(cart.find( item => item.id === id )) {
+                selectedProduct = cart.find( item => item.id === id )
+            }else {
+                selectedProduct = items.find( item => item.id === id )
+            }
             
             //Determina si ese producto ya fue seleccionado de forma previa. (Determina si el producto ya existe en el carrito)
             let index = cart.indexOf( selectedProduct )
@@ -129,7 +141,7 @@ function cartFunctionality(){
                     swal("No hay stock","", "error")
                 }else{
                     //Si la cantidad de ese producto seleccionado aun no sobrepasa la cantidad de productos disponibles en stock, añade otro producto igual al carrito
-                    cart[index].cantidad++
+                    cart[index].cantidad++;
                 }
                 
             }else{
@@ -141,18 +153,20 @@ function cartFunctionality(){
                 //Se añade al carrito
                 cart.push( selectedProduct )
             }
-            //for que recorre el arreglo cart y va incrementando la cantidad de productos en el carrito
+            // for que recorre el arreglo cart y va incrementando la cantidad de productos en el carrito
             totalCantidad = 0
             for (const arti of cart) {
             totalCantidad += arti.cantidad
             }           
-
-            console.log( cart )
+            
             cart_quantity.innerHTML = `${totalCantidad}`;
             showProductsInCart( cart )
-            
+            localStorage.setItem("data", JSON.stringify(cart));
         })
     } )
+     cart_quantity.innerHTML = `${totalCantidad}`;
+    showProductsInCart( cart )
+    localStorage.setItem("data", JSON.stringify(cart));
 
 }
 
@@ -192,8 +206,14 @@ function showProductsInCart(cart){
             <div class="cart--btn">
                 <button class="btn-checkout"> <i class='bx bxs-check-shield'></i> Checkout</button>
          </div>`
+
+        //  let totalCantidad = 0
+        //  for (const arti of cart) {
+        //  totalCantidad += arti.cantidad
+        //  }  
         productSelect.innerHTML = fragmen
         idTotal.innerHTML = total
+        // cart_quantity.innerHTML = `${totalCantidad}`;
     }
     
    
@@ -245,6 +265,7 @@ const showProductsFiltered = (itemName) => {
          `
     });
 
+    // console.log('f', cart.cantidad);
     productContainer.innerHTML = fragment
     // <button class="btn-add btn-add-apereance">+</button>
 
@@ -257,8 +278,10 @@ const showProductsFiltered = (itemName) => {
 
 document.addEventListener( "DOMContentLoaded", () =>{
     console.log( "DOM Cargado" ) ;
+    console.log(cart);
     loadComponent() 
     showProducts()
+    // showProductsInCart(cart)
 })
 
 // funcionalidad menu amburguesa
@@ -273,3 +296,5 @@ menuBtn.addEventListener( "click" , () => {
     menu.classList.toggle("visible")
    
 })
+
+
